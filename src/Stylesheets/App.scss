@@ -1,0 +1,16 @@
+.App {
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    // outline: 1px solid slategrey;
+}
