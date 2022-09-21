@@ -212,6 +212,7 @@
                 #3fb5ff 99.14%
               );
               border-radius: 4px;
+              z-index: -1;
             }
           }
         }
@@ -270,6 +271,19 @@
           );
           backdrop-filter: blur(25px);
           border-radius: 50px;
+          
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -3px;
+            border-radius: inherit;
+            opacity: 0.1;
+            background: linear-gradient(153.32deg, rgba(255, 255, 255, 0.3) -65.62%, rgba(255, 255, 255, 0.1) 83.28%), linear-gradient(142.08deg, rgba(255, 255, 255, 0.7) -5.03%, rgba(224, 224, 224, 0.85) 21.3%, rgba(101, 84, 169, 0.2) 49.04%, rgba(218, 218, 218, 0.5) 70.19%);
+          }
+          
           .card-content {
             display: flex;
             flex-direction: column;
