@@ -16,6 +16,9 @@ export default function EmployersCard(props) {
   const handleClose = () => {
     togglePopUp(false);
   };
+  const [companyName, setCompanyName] = React.useState("");
+  const [sizeOfOrg, setSizeOfOrg] = React.useState("1-10");
+  const [mailId, setMailId] = React.useState("");
   return (
     <Card
       className={styles["main-modal-card"]}
@@ -25,7 +28,13 @@ export default function EmployersCard(props) {
       }}
     >
       <CloseIcon
-        style={{ marginLeft: "450px", cursor: "pointer", color: "white" }}
+        style={{
+          float: "right",
+          paddingRight: "12px",
+          paddingTop: "12px",
+          cursor: "pointer",
+          color: "white",
+        }}
         onClick={handleClose}
       />
       <CardContent className={styles["card-content"]}>
@@ -76,12 +85,15 @@ export default function EmployersCard(props) {
             sx={{
               width: "450px",
             }}
+            value={companyName}
+            onChange={() => {
+              setCompanyName(companyName);
+            }}
           />
 
           <br />
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
             name="radio-buttons-group"
           >
             <FormLabel
@@ -107,30 +119,45 @@ export default function EmployersCard(props) {
               control={<Radio />}
               label="1-10"
               style={{ color: "white" }}
+              onClick={(e) => {
+                setSizeOfOrg(e.target.value);
+              }}
             />
             <FormControlLabel
               value="10-50"
               control={<Radio />}
               label="10-50"
               style={{ color: "white" }}
+              onClick={(e) => {
+                setSizeOfOrg(e.target.value);
+              }}
             />
             <FormControlLabel
               value="500-5000"
               control={<Radio />}
               label="500-5000"
               style={{ color: "white" }}
+              onClick={(e) => {
+                setSizeOfOrg(e.target.value);
+              }}
             />
             <FormControlLabel
               value="5000-50000"
               control={<Radio />}
               label="5000-50000"
               style={{ color: "white" }}
+              onClick={(e) => {
+                setSizeOfOrg(e.target.value);
+              }}
             />
             <FormControlLabel
               value="50000+"
               control={<Radio />}
               label="50000+"
               style={{ color: "white" }}
+              onClick={(e) => {
+                setSizeOfOrg(e.target.value);
+              }}
             />
           </RadioGroup>
           <FormLabel
@@ -151,7 +178,15 @@ export default function EmployersCard(props) {
           >
             3.Contact Email
           </FormLabel>
-          <TextField id="email" label="name@example.com" variant="standard" />
+          <TextField
+            id="email"
+            label="name@example.com"
+            variant="standard"
+            value={mailId}
+            onChange={(e) => {
+              setMailId(e.target.value);
+            }}
+          />
           <Button
             type="submit"
             variant="contained"

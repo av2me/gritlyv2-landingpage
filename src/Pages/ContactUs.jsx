@@ -11,15 +11,12 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-export default function RoleSpecificTrainingCard(props) {
+export default function ContactUs(props) {
   const { togglePopUp } = props;
   const handleClose = () => {
     togglePopUp(false);
   };
-  const [programName, setProgramName] = React.useState("");
-  const [programType, setProgramType] = React.useState("Technical");
   const [mailId, setMailId] = React.useState("");
-
   return (
     <Card
       className={styles["main-modal-card"]}
@@ -55,80 +52,10 @@ export default function RoleSpecificTrainingCard(props) {
             "background-clip": "text",
           }}
         >
-          Role Specific Training
+          Contact Us
         </Typography>
         <br />
         <FormControl className={styles["form-content"]}>
-          <FormLabel
-            htmlFor="training-program-name"
-            className={styles["training-program-label"]}
-            sx={{
-              fontSize: "30px",
-              fontFamily: "PT Sans",
-              fontStyle: "normal",
-              fontWeight: "600",
-              lineHeight: "50px",
-
-              letterSpacing: "-0.03em",
-              background:
-                "linear-gradient(90deg,#ffe27d 3.13%,#ffb543 31.38%,#61ffd5 74.27%,#3fb5ff 99.14%)",
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent",
-              "background-clip": "text",
-            }}
-          >
-            1.Training Program Name
-          </FormLabel>
-          <TextField
-            id="training-program-name"
-            label="Type your answer here ..."
-            variant="standard"
-            sx={{
-              width: "450px",
-            }}
-            onChange={(e) => {
-              setProgramName(e.target.value);
-            }}
-          />
-
-          <br />
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            name="radio-buttons-group"
-          >
-            <FormLabel
-              id="program-type"
-              sx={{
-                fontSize: "30px",
-                fontFamily: "PT Sans",
-                fontStyle: "normal",
-                fontWeight: "600",
-                lineHeight: "50px",
-                letterSpacing: "-0.03em",
-                background:
-                  "linear-gradient(90deg,#ffe27d 3.13%,#ffb543 31.38%,#61ffd5 74.27%,#3fb5ff 99.14%)",
-                "-webkit-background-clip": "text",
-                "-webkit-text-fill-color": "transparent",
-                "background-clip": "text",
-              }}
-            >
-              2.Program Type
-            </FormLabel>
-            <FormControlLabel
-              value="nontechnical"
-              control={<Radio />}
-              label="Non-Technical"
-              style={{ color: "white" }}
-              onClick={(e) => setProgramType(e.target.value)}
-            />
-            <FormControlLabel
-              value="technical"
-              control={<Radio />}
-              label="Technical"
-              style={{ color: "white" }}
-              onClick={(e) => setProgramType(e.target.value)}
-            />
-          </RadioGroup>
           <FormLabel
             htmlFor="email"
             sx={{

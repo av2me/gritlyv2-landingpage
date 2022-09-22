@@ -1,79 +1,80 @@
 import { React, useState } from "react";
 import styles from "../Stylesheets/newLandingPage.module.scss";
-import Logo from "../Assets/Images/Gritly-logo.svg"
-import Button from "@mui/material/Button"
+import Logo from "../Assets/Images/Gritly-logo.svg";
+import Button from "@mui/material/Button";
 import GenericModal from "./GenericModal";
 import RoleSpecificTrainingCard from "./RoleSpecificTrainingCard";
 
-import workbright from '../Assets/Images/PartnerImages/SVG/workbright.svg'
-import sondermind from '../Assets/Images/PartnerImages/SVG/sondermind.svg'
-import dope from '../Assets/Images/PartnerImages/SVG/dope.svg'
-import rpaLabs from '../Assets/Images/PartnerImages/SVG/rpalabs.svg'
-import salesforce from '../Assets/Images/PartnerImages/SVG/salesforce.svg'
-import skupos from '../Assets/Images/PartnerImages/SVG/skupos.svg'
-import misla from '../Assets/Images/PartnerImages/SVG/misla.svg'
-import community_college from '../Assets/Images/PartnerImages/SVG/communityCollegeOfAurora.svg'
-import energizeColorado from '../Assets/Images/PartnerImages/SVG/energizeColorado.svg'
-import inside_voice from '../Assets/Images/PartnerImages/SVG/insidevoices.svg'
-import gr8_insight from '../Assets/Images/PartnerImages/SVG/gr8insight.svg'
-import bedrock from '../Assets/Images/PartnerImages/Bedrock-logo-purple-1.png'
-import binti from '../Assets/Images/PartnerImages/binti-logo2x.png'
+import workbright from "../Assets/Images/PartnerImages/SVG/workbright.svg";
+import sondermind from "../Assets/Images/PartnerImages/SVG/sondermind.svg";
+import dope from "../Assets/Images/PartnerImages/SVG/dope.svg";
+import rpaLabs from "../Assets/Images/PartnerImages/SVG/rpalabs.svg";
+import salesforce from "../Assets/Images/PartnerImages/SVG/salesforce.svg";
+import skupos from "../Assets/Images/PartnerImages/SVG/skupos.svg";
+import misla from "../Assets/Images/PartnerImages/SVG/misla.svg";
+import community_college from "../Assets/Images/PartnerImages/SVG/communityCollegeOfAurora.svg";
+import energizeColorado from "../Assets/Images/PartnerImages/SVG/energizeColorado.svg";
+import inside_voice from "../Assets/Images/PartnerImages/SVG/insidevoices.svg";
+import gr8_insight from "../Assets/Images/PartnerImages/SVG/gr8insight.svg";
+import bedrock from "../Assets/Images/PartnerImages/Bedrock-logo-purple-1.png";
+import binti from "../Assets/Images/PartnerImages/binti-logo2x.png";
 
 import EmployersCard from "./EmployersCard";
+import ContactUs from "./ContactUs";
 const partnerImages = [
   {
     key: 1,
-    img: workbright
+    img: workbright,
   },
   {
     key: 2,
-    img: sondermind
+    img: sondermind,
   },
   {
     key: 3,
-    img: dope
+    img: dope,
   },
   {
     key: 4,
-    img: rpaLabs
+    img: rpaLabs,
   },
   {
     key: 5,
-    img: salesforce
+    img: salesforce,
   },
   {
     key: 6,
-    img: skupos
+    img: skupos,
   },
   {
     key: 7,
-    img: misla
+    img: misla,
   },
   {
     key: 8,
-    img: community_college
+    img: community_college,
   },
   {
     key: 9,
-    img: energizeColorado
+    img: energizeColorado,
   },
   {
     key: 10,
-    img: inside_voice
+    img: inside_voice,
   },
   {
     key: 11,
-    img: gr8_insight
+    img: gr8_insight,
   },
   {
     key: 12,
-    img: bedrock
+    img: bedrock,
   },
   {
     key: 13,
-    img: binti
-  }
-]
+    img: binti,
+  },
+];
 
 const cardContent = [
   {
@@ -106,6 +107,7 @@ const NewLandingPage = () => {
   const [toggleRoleSpecificCard, updateToggleRoleSpecificCard] =
     useState(false);
   const [toggleEmployers, updateToggleEmployers] = useState(false);
+  const [toggleContactUs, updateToggleContactUs] = useState(false);
   return (
     <div className={styles["main-div"]}>
       <div className={styles["header-wrapper"]}>
@@ -132,18 +134,16 @@ const NewLandingPage = () => {
         <div className={styles["bottom-header"]}>
           Our Partners
           {/* <Carousel deviceType='desktop' /> */}
-          <div className={styles["image-wrapper"]} >
-            {
-              partnerImages.map((item) => {
-                return (
-                  <div className={styles["image-wrapper-styles"]} key={item.key}>
-                    <div className={styles["image-wrapper-dummy-element"]}>
-                      <img src={item.img} alt="partner-images" />
-                    </div>
+          <div className={styles["image-wrapper"]}>
+            {partnerImages.map((item) => {
+              return (
+                <div className={styles["image-wrapper-styles"]} key={item.key}>
+                  <div className={styles["image-wrapper-dummy-element"]}>
+                    <img src={item.img} alt="partner-images" />
                   </div>
-                )
-              })
-            }
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className={styles["about-bottom-header"]} id={"about-header"}>
@@ -168,6 +168,16 @@ const NewLandingPage = () => {
               togglePopUp={updateToggleEmployers}
             />
           </GenericModal>
+          <GenericModal
+            open={toggleContactUs}
+            togglePopUp={updateToggleContactUs}
+            className={styles["modal-styles"]}
+          >
+            <ContactUs
+              open={toggleContactUs}
+              togglePopUp={updateToggleContactUs}
+            />
+          </GenericModal>
           <div className={styles["card-content-wrapper"]}>
             {cardContent.map((card) => {
               return (
@@ -180,6 +190,9 @@ const NewLandingPage = () => {
                       updateToggle(!toggle);
                     } else if (card.title === "Employers") {
                       updateToggleEmployers(!toggleEmployers);
+                      updateToggle(!toggle);
+                    } else if (card.title === "Contact us") {
+                      updateToggleContactUs(!toggleContactUs);
                       updateToggle(!toggle);
                     }
                   }}

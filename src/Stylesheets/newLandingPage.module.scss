@@ -1,9 +1,12 @@
-
 $animationSpeed: 40s;
 
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
 }
 
 .main-div {
@@ -167,7 +170,7 @@ $animationSpeed: 40s;
       line-height: 60px;
       color: #ffffff;
       padding-top: 131px;
-
+      overflow: hidden;
       // .carousel-styles {
       //     display: flex;
       //     width: 100%;
@@ -185,12 +188,11 @@ $animationSpeed: 40s;
         justify-content: center;
         align-items: center;
         z-index: 99;
-        // max-width: 90%;
+        max-width: auto;
         transition: opacity 0.5s ease-in-out;
         animation: scroll $animationSpeed linear infinite;
-        width: auto;
         margin: auto;
-        
+
         .image-wrapper-styles {
           display: flex;
           position: relative;
@@ -284,19 +286,32 @@ $animationSpeed: 40s;
           );
           backdrop-filter: blur(25px);
           border-radius: 50px;
-          
 
           &:before {
-            content: '';
+            content: "";
             position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             z-index: -1;
             margin: -3px;
             border-radius: inherit;
             opacity: 0.1;
-            background: linear-gradient(153.32deg, rgba(255, 255, 255, 0.3) -65.62%, rgba(255, 255, 255, 0.1) 83.28%), linear-gradient(142.08deg, rgba(255, 255, 255, 0.7) -5.03%, rgba(224, 224, 224, 0.85) 21.3%, rgba(101, 84, 169, 0.2) 49.04%, rgba(218, 218, 218, 0.5) 70.19%);
+            background: linear-gradient(
+                153.32deg,
+                rgba(255, 255, 255, 0.3) -65.62%,
+                rgba(255, 255, 255, 0.1) 83.28%
+              ),
+              linear-gradient(
+                142.08deg,
+                rgba(255, 255, 255, 0.7) -5.03%,
+                rgba(224, 224, 224, 0.85) 21.3%,
+                rgba(101, 84, 169, 0.2) 49.04%,
+                rgba(218, 218, 218, 0.5) 70.19%
+              );
           }
-          
+
           .card-content {
             display: flex;
             flex-direction: column;
@@ -397,6 +412,9 @@ $animationSpeed: 40s;
     .bottom-wrapper {
       //height: 100%;
       width: 100%;
+      .bottom-header {
+        width: 1500px;
+      }
       .about-bottom-header {
         display: flex;
         width: min-content;

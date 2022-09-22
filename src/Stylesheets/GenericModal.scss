@@ -17,3 +17,15 @@
     cursor: pointer;
   }
 }
+@media only screen and (max-width: 900px) {
+  .generic-modal-root {
+    backdrop-filter: blur(15px);
+    .generic-modal-container {
+    }
+    .generic-modal-paper {
+      width: 500px;
+      border-radius: 5%;
+      height: fit-content;
+    }
+  }
+}
