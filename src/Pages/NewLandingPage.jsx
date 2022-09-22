@@ -19,6 +19,7 @@ import gr8_insight from '../Assets/Images/PartnerImages/SVG/gr8insight.svg'
 import bedrock from '../Assets/Images/PartnerImages/Bedrock-logo-purple-1.png'
 import binti from '../Assets/Images/PartnerImages/binti-logo2x.png'
 
+import EmployersCard from "./EmployersCard";
 const partnerImages = [
   {
     key: 1,
@@ -101,14 +102,10 @@ const scrollToSection = () => {
 };
 
 const NewLandingPage = () => {
-  const [open, setOpen] = useState(false);
   const [toggle, updateToggle] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [toggleRoleSpecificCard, updateToggleRoleSpecificCard] =
+    useState(false);
+  const [toggleEmployers, updateToggleEmployers] = useState(false);
   return (
     <div className={styles["main-div"]}>
       <div className={styles["header-wrapper"]}>
@@ -152,13 +149,24 @@ const NewLandingPage = () => {
         <div className={styles["about-bottom-header"]} id={"about-header"}>
           About Platform
           <GenericModal
-            open={toggle}
-            togglePopUp={updateToggle}
+            open={toggleRoleSpecificCard}
+            togglePopUp={updateToggleRoleSpecificCard}
             className={styles["modal-styles"]}
           >
-            <div className={styles["card-menu"]}>
-              <RoleSpecificTrainingCard />
-            </div>
+            <RoleSpecificTrainingCard
+              open={toggleRoleSpecificCard}
+              togglePopUp={updateToggleRoleSpecificCard}
+            />
+          </GenericModal>
+          <GenericModal
+            open={toggleEmployers}
+            togglePopUp={updateToggleEmployers}
+            className={styles["modal-styles"]}
+          >
+            <EmployersCard
+              open={toggleEmployers}
+              togglePopUp={updateToggleEmployers}
+            />
           </GenericModal>
           <div className={styles["card-content-wrapper"]}>
             {cardContent.map((card) => {
@@ -167,7 +175,13 @@ const NewLandingPage = () => {
                   className={styles["card-wrapper"]}
                   key={card.key}
                   onClick={() => {
-                    updateToggle(!toggle);
+                    if (card.title === "Role-Specific Training") {
+                      updateToggleRoleSpecificCard(!toggleRoleSpecificCard);
+                      updateToggle(!toggle);
+                    } else if (card.title === "Employers") {
+                      updateToggleEmployers(!toggleEmployers);
+                      updateToggle(!toggle);
+                    }
                   }}
                 >
                   <div className={styles["card-content"]}>
