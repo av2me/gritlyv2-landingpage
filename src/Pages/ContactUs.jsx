@@ -11,12 +11,44 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+
+import Axios from "axios";
+
 export default function ContactUs(props) {
   const { togglePopUp } = props;
   const handleClose = () => {
     togglePopUp(false);
   };
   const [mailId, setMailId] = React.useState("");
+
+  const API_KEY = 'keyzBRn4UbKaJURDp';
+  const BASE_ID = 'appNYc0O78PZqeeQD';
+
+  const headers = {
+    'Authorization': 'Bearer '+ API_KEY,
+    "Content-Type": "application/json"
+  };
+
+  const submitHandler = () => {
+    Axios.post(`https://api.airtable.com/v0/${BASE_ID}/Contact%20us`,
+    {
+      records: [
+        {
+          "fields": {
+            "Contact email": mailId
+          }
+        }
+      ]
+    },
+    {
+      headers: headers
+    }
+    )
+    .then(() => {
+      togglePopUp(false);
+    })
+  };
+
   return (
     <Card
       className={styles["main-modal-card"]}
@@ -101,6 +133,7 @@ export default function ContactUs(props) {
               background:
                 "linear-gradient(90deg,#61ffd5 3.13%,#3fb5ff 38.24%,#ffe27d 68.01%,#ffb543 98.28%)",
             }}
+            onClick={() => submitHandler()}
           >
             Submit
           </Button>

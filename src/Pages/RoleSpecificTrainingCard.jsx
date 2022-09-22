@@ -11,6 +11,9 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+
+import Axios from "axios";
+
 export default function RoleSpecificTrainingCard(props) {
   const { togglePopUp } = props;
   const handleClose = () => {
@@ -19,6 +22,36 @@ export default function RoleSpecificTrainingCard(props) {
   const [programName, setProgramName] = React.useState("");
   const [programType, setProgramType] = React.useState("Technical");
   const [mailId, setMailId] = React.useState("");
+  
+  const API_KEY = 'keyzBRn4UbKaJURDp';
+  const BASE_ID = 'appNYc0O78PZqeeQD';
+
+  const headers = {
+    'Authorization': 'Bearer '+ API_KEY,
+    "Content-Type": "application/json"
+  };
+
+  const submitHandler = () => {
+    Axios.post(`https://api.airtable.com/v0/${BASE_ID}/Training%20program`,
+    {
+      records: [
+        {
+          "fields": {
+            "Training program name": programName,
+            "Program type": programType,
+            "Contact email": mailId
+          }
+        }
+      ]
+    },
+    {
+      headers: headers
+    }
+    )
+    .then(() => {
+      togglePopUp(false);
+    })
+  };
 
   return (
     <Card
@@ -77,7 +110,7 @@ export default function RoleSpecificTrainingCard(props) {
               "background-clip": "text",
             }}
           >
-            1.Training Program Name
+            1. Training Program Name
           </FormLabel>
           <TextField
             id="training-program-name"
@@ -112,7 +145,7 @@ export default function RoleSpecificTrainingCard(props) {
                 "background-clip": "text",
               }}
             >
-              2.Program Type
+              2. Program Type
             </FormLabel>
             <FormControlLabel
               value="nontechnical"
@@ -145,7 +178,7 @@ export default function RoleSpecificTrainingCard(props) {
               "background-clip": "text",
             }}
           >
-            3.Contact Email
+            3. Contact Email
           </FormLabel>
           <TextField
             id="email"
@@ -174,6 +207,7 @@ export default function RoleSpecificTrainingCard(props) {
               background:
                 "linear-gradient(90deg,#61ffd5 3.13%,#3fb5ff 38.24%,#ffe27d 68.01%,#ffb543 98.28%)",
             }}
+            onClick={() => submitHandler()}
           >
             Submit
           </Button>

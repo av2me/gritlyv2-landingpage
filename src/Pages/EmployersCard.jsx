@@ -11,6 +11,9 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+
+import Axios from "axios";
+
 export default function EmployersCard(props) {
   const { togglePopUp } = props;
   const handleClose = () => {
@@ -19,6 +22,39 @@ export default function EmployersCard(props) {
   const [companyName, setCompanyName] = React.useState("");
   const [sizeOfOrg, setSizeOfOrg] = React.useState("1-10");
   const [mailId, setMailId] = React.useState("");
+
+  const API_KEY = 'keyzBRn4UbKaJURDp';
+  const BASE_ID = 'appNYc0O78PZqeeQD';
+
+  const headers = {
+    'Authorization': 'Bearer '+ API_KEY,
+    "Content-Type": "application/json"
+  };
+
+
+
+  const submitHandler = () => {
+    Axios.post(`https://api.airtable.com/v0/${BASE_ID}/Employer`,
+    {
+      records: [
+        {
+          "fields": {
+            "Company name": companyName,
+            "Size of organization": sizeOfOrg,
+            "Contact email": mailId
+          }
+        }
+      ]
+    },
+    {
+      headers: headers
+    }
+    )
+    .then(() => {
+      togglePopUp(false);
+    })
+  };
+
   return (
     <Card
       className={styles["main-modal-card"]}
@@ -76,7 +112,7 @@ export default function EmployersCard(props) {
               "background-clip": "text",
             }}
           >
-            1.Company Name
+            1. Company Name
           </FormLabel>
           <TextField
             id="training-program-name"
@@ -86,8 +122,8 @@ export default function EmployersCard(props) {
               width: "450px",
             }}
             value={companyName}
-            onChange={() => {
-              setCompanyName(companyName);
+            onChange={(e) => {
+              setCompanyName(e.target.value);
             }}
           />
 
@@ -112,7 +148,7 @@ export default function EmployersCard(props) {
                 "background-clip": "text",
               }}
             >
-              2.Size of Organisation
+              2. Size of Organisation
             </FormLabel>
             <FormControlLabel
               value="1-10"
@@ -176,13 +212,12 @@ export default function EmployersCard(props) {
               "background-clip": "text",
             }}
           >
-            3.Contact Email
+            3. Contact Email
           </FormLabel>
           <TextField
             id="email"
             label="name@example.com"
             variant="standard"
-            value={mailId}
             onChange={(e) => {
               setMailId(e.target.value);
             }}
@@ -205,6 +240,7 @@ export default function EmployersCard(props) {
               background:
                 "linear-gradient(90deg,#61ffd5 3.13%,#3fb5ff 38.24%,#ffe27d 68.01%,#ffb543 98.28%)",
             }}
+            onClick={() => submitHandler()}
           >
             Submit
           </Button>
