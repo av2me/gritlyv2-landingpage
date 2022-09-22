@@ -19,6 +19,10 @@ $animationSpeed: 40s;
     width: 98%;
     z-index: 99;
     .logo-placeholder {
+      > a {
+        text-decoration: none; 
+        cursor: pointer; 
+      }
       > img {
         width: 115px;
         height: 52px;
@@ -310,7 +314,7 @@ $animationSpeed: 40s;
               font-style: normal;
               font-weight: 700;
               font-size: 32px;
-              line-height: 34px;
+              // line-height: 34px;
               text-align: center;
               letter-spacing: -0.03em;
               background: linear-gradient(
@@ -364,6 +368,11 @@ $animationSpeed: 40s;
           line-height: 26px;
           font-feature-settings: "liga" off;
           color: #ffffff;
+          > a {
+            color: inherit;
+            text-decoration: none; 
+            cursor: pointer; 
+          }
         }
       }
       .copyrights {

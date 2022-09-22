@@ -4,6 +4,7 @@ import Logo from "../Assets/Images/Gritly-logo.svg"
 import Button from "@mui/material/Button"
 import GenericModal from "./GenericModal";
 import RoleSpecificTrainingCard from "./RoleSpecificTrainingCard";
+import EmployersCard from "./EmployersCard";
 
 import workbright from '../Assets/Images/PartnerImages/SVG/workbright.svg'
 import sondermind from '../Assets/Images/PartnerImages/SVG/sondermind.svg'
@@ -19,7 +20,6 @@ import gr8_insight from '../Assets/Images/PartnerImages/SVG/gr8insight.svg'
 import bedrock from '../Assets/Images/PartnerImages/Bedrock-logo-purple-1.png'
 import binti from '../Assets/Images/PartnerImages/binti-logo2x.png'
 
-import EmployersCard from "./EmployersCard";
 const partnerImages = [
   {
     key: 1,
@@ -110,7 +110,9 @@ const NewLandingPage = () => {
     <div className={styles["main-div"]}>
       <div className={styles["header-wrapper"]}>
         <div className={styles["logo-placeholder"]}>
-          <img src={Logo} alt="Gritly" />
+          <a href="https://gritly.us">
+            <img src={Logo} alt="Gritly" />
+          </a>
         </div>
         <div className={styles["right-placeholder"]}>
           <Button
@@ -198,11 +200,15 @@ const NewLandingPage = () => {
             <img src={Logo} alt="Gritly" />
           </div>
           <div className={styles["footer-menu-selections"]}>
-            <span>About</span>
+            {/* <span>About</span>
             <span>For Companies</span>
             <span>FAQ</span>
-            <span>Contact Us</span>
-            <span>Privacy Policy</span>
+            <span>Contact Us</span> */}
+            <span>
+              <a href="">
+                Privacy Policy
+              </a>
+            </span>
           </div>
           <div className={styles["copyrights"]}>
             © {new Date().getFullYear()} Gritly. All rights reserved
