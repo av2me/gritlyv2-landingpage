@@ -8,7 +8,7 @@ import EmployersCard from "./EmployersCard";
 
 import workbright from "../Assets/Images/PartnerImages/SVG/workbright.svg";
 import sondermind from "../Assets/Images/PartnerImages/SVG/sondermind.svg";
-import dope from "../Assets/Images/PartnerImages/SVG/dope.svg";
+import google from "../Assets/Images/PartnerImages/SVG/Google_for_Startups_logo.png";
 import rpaLabs from "../Assets/Images/PartnerImages/SVG/rpalabs.svg";
 import salesforce from "../Assets/Images/PartnerImages/SVG/salesforce.svg";
 import skupos from "../Assets/Images/PartnerImages/SVG/skupos.svg";
@@ -32,7 +32,7 @@ const partnerImages = [
   },
   {
     key: 3,
-    img: dope,
+    img: google,
   },
   {
     key: 4,
@@ -218,6 +218,7 @@ const NewLandingPage = () => {
             <span>FAQ</span>
             <span>Contact Us</span> */}
             <span>
+               {/* add the url  */}
               <a href="">Privacy Policy</a>
             </span>
           </div>
