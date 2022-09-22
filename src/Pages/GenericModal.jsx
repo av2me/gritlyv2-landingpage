@@ -3,8 +3,7 @@ import React from "react";
 import Dialog from "@mui/material/Dialog";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import CloseIcon from "@mui/icons-material/Close";
-
+import "../Stylesheets/GenericModal.scss";
 export default function GenericModal(props) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -19,17 +18,11 @@ export default function GenericModal(props) {
         container: "generic-modal-container",
         paper: "generic-modal-paper",
       }}
-      style={{
-        backdropFilter: "blur(15px)",
-      }}
       fullScreen={fullScreen}
       open={open}
       onClose={handleClose}
       aria-labelledby="responsive-dialog-title"
     >
-      <div className={"close-container"} onClick={handleClose}>
-        <CloseIcon style={{ float: "right" }} />
-      </div>
       {children}
     </Dialog>
   );

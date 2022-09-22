@@ -11,7 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-export default function RoleSpecificTrainingCard(props) {
+export default function EmployersCard(props) {
   const { togglePopUp } = props;
   const handleClose = () => {
     togglePopUp(false);
@@ -45,7 +45,7 @@ export default function RoleSpecificTrainingCard(props) {
             "background-clip": "text",
           }}
         >
-          Role Specific Training
+          Employers
         </Typography>
         <br />
         <FormControl className={styles["form-content"]}>
@@ -67,7 +67,7 @@ export default function RoleSpecificTrainingCard(props) {
               "background-clip": "text",
             }}
           >
-            1.Training Program Name
+            1.Company Name
           </FormLabel>
           <TextField
             id="training-program-name"
@@ -100,18 +100,36 @@ export default function RoleSpecificTrainingCard(props) {
                 "background-clip": "text",
               }}
             >
-              2.Program Type
+              2.Size of Organisation
             </FormLabel>
             <FormControlLabel
-              value="nontechnical"
+              value="1-10"
               control={<Radio />}
-              label="Non-Technical"
+              label="1-10"
               style={{ color: "white" }}
             />
             <FormControlLabel
-              value="technical"
+              value="10-50"
               control={<Radio />}
-              label="Technical"
+              label="10-50"
+              style={{ color: "white" }}
+            />
+            <FormControlLabel
+              value="500-5000"
+              control={<Radio />}
+              label="500-5000"
+              style={{ color: "white" }}
+            />
+            <FormControlLabel
+              value="5000-50000"
+              control={<Radio />}
+              label="5000-50000"
+              style={{ color: "white" }}
+            />
+            <FormControlLabel
+              value="50000+"
+              control={<Radio />}
+              label="50000+"
               style={{ color: "white" }}
             />
           </RadioGroup>

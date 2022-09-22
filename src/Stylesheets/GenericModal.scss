@@ -1,0 +1,19 @@
+.generic-modal-root {
+  backdrop-filter: blur(15px);
+  .generic-modal-container {
+  }
+  .generic-modal-paper {
+    width: 500px;
+    border-radius: 5%;
+    background: linear-gradient(
+      153.32deg,
+      rgba(255, 255, 255, 0.3) -65.62%,
+      rgba(255, 255, 255, 0.1) 83.28%
+    );
+  }
+  .close-container {
+    text-align: right;
+    padding: 0.3125rem;
+    cursor: pointer;
+  }
+}
