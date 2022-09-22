@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.07a67a00.css",
+    "main.js": "/static/js/main.3c39f177.js",
+    "static/js/787.e440e10c.chunk.js": "/static/js/787.e440e10c.chunk.js",
+    "static/media/background-overlay-top.jpg": "/static/media/background-overlay-top.9cd0e363cabc821b0cd6.jpg",
+    "static/media/background-overlay-bottom.jpg": "/static/media/background-overlay-bottom.00c3e984c65e3ebe8618.jpg",
+    "static/media/energizeColorado.svg": "/static/media/energizeColorado.7b303b84bf15b40d72b4ba97d3bc1cc8.svg",
+    "static/media/salesforce.svg": "/static/media/salesforce.ea087187b89d6fabb92151d5f38c8a88.svg",
+    "static/media/rpalabs.svg": "/static/media/rpalabs.e447da5e505bb2e03c739ee921c1dbe7.svg",
+    "static/media/workbright.svg": "/static/media/workbright.8e4a52bdb7e0f6e5b8e9ed5d4f168ab5.svg",
+    "static/media/communityCollegeOfAurora.svg": "/static/media/communityCollegeOfAurora.59f07217d7761bd2bfaed5e9d072dd5b.svg",
+    "static/media/sondermind.svg": "/static/media/sondermind.0b6f57adc451f45345b668e6fc47bd0a.svg",
+    "static/media/gr8insight.svg": "/static/media/gr8insight.67834103e3bcb93bc028ac683e7c11e6.svg",
+    "static/media/Bedrock-logo-purple-1.png": "/static/media/Bedrock-logo-purple-1.2032dc5bbffc284905c7.png",
+    "static/media/insidevoices.svg": "/static/media/insidevoices.3243e90ba0e93b537470a220c6326d69.svg",
+    "static/media/skupos.svg": "/static/media/skupos.f2df278e5f992f5e5df6eed5783e464e.svg",
+    "static/media/misla.svg": "/static/media/misla.3b8725265fcea0e5dff9130c19975c80.svg",
+    "static/media/Gritly-logo.svg": "/static/media/Gritly-logo.322605de8ccd4401486256a36e0cfa45.svg",
+    "index.html": "/index.html",
+    "main.07a67a00.css.map": "/static/css/main.07a67a00.css.map",
+    "main.3c39f177.js.map": "/static/js/main.3c39f177.js.map",
+    "787.e440e10c.chunk.js.map": "/static/js/787.e440e10c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07a67a00.css",
+    "static/js/main.3c39f177.js"
+  ]
+}
