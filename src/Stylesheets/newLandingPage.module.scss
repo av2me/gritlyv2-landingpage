@@ -407,29 +407,136 @@ $animationSpeed: 40s;
 }
 @media only screen and (max-width: 900px) {
   .main-div {
-    width: fit-content;
-    .top-wrapper {
-      height: 100%;
-      width: 100%;
-      .body-wrapper {
-        display: flex;
-        //margin-left: 200px;
-        align-items: center;
-        width: 1500px;
-        padding-top: 40px;
+    .header-wrapper {
+      .logo-placeholder {
+      }
+      .right-placeholder {
+        .button-styles {
+          margin-right: 20px;
+        }
       }
     }
-    .bottom-wrapper {
-      //height: 100%;
-      width: 100%;
-      .bottom-header {
-        width: 1500px;
+    .top-wrapper {
+      &::before {
+        content: "";
+        position: absolute;
+        background: radial-gradient(
+          30.8% 30.8% at 57.79% 54.71%,
+          rgba(20, 34, 151, 0.8) 0%,
+          rgba(56, 35, 131, 0.8) 48.71%,
+          rgba(69, 40, 150, 0.8) 78.16%,
+          rgba(20, 34, 151, 0.8) 100%
+        );
+        filter: blur(75px);
+        top: 0;
+        right: 0;
+        height: 204px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        background: radial-gradient(
+          30.8% 30.8% at 57.79% 54.71%,
+          rgba(43, 24, 103, 0.4) 0%,
+          rgba(56, 35, 131, 0.4) 48.71%,
+          rgba(69, 40, 150, 0.4) 78.16%,
+          rgba(20, 34, 151, 0.4) 100%
+        );
+        filter: blur(75px);
+        bottom: 0;
+        left: 0;
+        height: 200px;
+        //width: calc(100%) !important;
+        //z-index: 1;
+      }
+      .body-wrapper {
+        width: calc(100%) !important;
+        font-style: normal;
+        font-size: 40px;
+        //line-height: 150px;
+      }
+    }
+    .body-wrapper {
+      .bottom-header,
+      .about-bottom-header {
+        .image-wrapper {
+          .image-wrapper-styles {
+            width: calc(100%) !important;
+          }
+        }
       }
       .about-bottom-header {
-        display: flex;
-        width: min-content;
-        flex-direction: column;
-        margin-left: 436px;
+        &::before {
+          border-radius: 50%;
+          position: absolute;
+          margin: 0 auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 154px;
+          width: 100px;
+          background: radial-gradient(
+            30.8% 30.8% at 57.79% 54.71%,
+            rgba(20, 34, 151, 0.8) 0%,
+            rgba(56, 35, 131, 0.8) 48.71%,
+            rgba(69, 40, 150, 0.8) 78.16%,
+            rgba(20, 34, 151, 0.8) 100%
+          );
+          filter: blur(75px);
+          content: "";
+          z-index: -1;
+        }
+
+        .card-content-wrapper {
+          .card-wrapper {
+            //width: calc(100%) !important;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: -1;
+              //margin: -3px;
+              border-radius: inherit;
+              opacity: 0.1;
+              background: linear-gradient(
+                  153.32deg,
+                  rgba(255, 255, 255, 0.3) -65.62%,
+                  rgba(255, 255, 255, 0.1) 83.28%
+                ),
+                linear-gradient(
+                  142.08deg,
+                  rgba(255, 255, 255, 0.7) -5.03%,
+                  rgba(224, 224, 224, 0.85) 21.3%,
+                  rgba(101, 84, 169, 0.2) 49.04%,
+                  rgba(218, 218, 218, 0.5) 70.19%
+                );
+            }
+          }
+          .card-content {
+            .content-header {
+              font-size: 18px;
+              width: calc(100%) !important;
+            }
+            .content-body {
+              width: calc(100%) !important;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      .footer-bar {
+        .bottom-logo-placeholder {
+          width: calc(100%) !important;
+        }
+        .footer-menu-selections {
+          width: calc(100%) !important;
+        }
+        .copyrights {
+          width: calc(100%) !important;
+        }
       }
     }
   }
